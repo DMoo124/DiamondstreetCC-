@@ -1,203 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Diamond Street Custom Creations – Premium Billet Accessories for Chevrolet Impalas (91–96)</title>
-  <meta name="description" content="Diamond Street Custom Creations offers CNC-machined billet aluminum accessories for Chevrolet B-body cars (1991–96 Impala SS, Caprice, Roadmaster). Shop engine bay caps, interior trim, exterior badges, and custom CNC parts.">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset & Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background-color: #0d0d0d; color: #fff; line-height: 1.6; }
-    a { color: #ff8c00; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-    /* Container */
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-    /* Header & Nav */
-    header { background: #1a1a1a; padding: 10px 0; position: sticky; top: 0; z-index: 100; }
-    .logo { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; color: #ff8c00; }
-    nav { float: right; }
-    nav ul { list-style: none; }
-    nav li { display: inline-block; margin-left: 20px; }
-    nav a { font-weight: 500; text-transform: uppercase; font-size: 0.95rem; }
-    /* Mobile Menu */
-    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-    @media(max-width: 768px) {
-      nav { display: none; position: absolute; top: 60px; right: 20px; background: #1a1a1a; padding: 10px; }
-      nav ul { display: block; }
-      nav li { display: block; margin: 10px 0; }
-      .menu-toggle { display: block; color: #fff; float: right; margin: 15px; }
-    }
-    /* Hero Section */
-    .hero { background: url('https://example.com/hero-bg.jpg') no-repeat center/cover; height: 80vh; position: relative; display: flex; align-items: center; color: #fff; }
-    .hero::after { content: ''; position: absolute; inset: 0; background: rgba(13,13,13,0.6); }
-    .hero-content { position: relative; z-index: 1; max-width: 800px; text-align: center; margin: 0 auto; }
-    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 2px; }
-    .hero p { font-size: 1.1rem; margin: 15px 0; }
-    .hero .btn { display: inline-block; background: #ff8c00; color: #000; padding: 12px 30px; font-size: 1rem; margin: 10px; font-weight: 700; border: none; border-radius: 4px; transition: transform 0.2s, background 0.3s; }
-    .hero .btn:hover { transform: scale(1.05); background: #ffa733; }
-    /* Featured Categories */
-    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 15px; margin: 40px 0; }
-    .cat-card { background: #1a1a1a; padding: 15px; text-align: center; border: 1px solid #333; transition: transform 0.2s; }
-    .cat-card:hover { transform: translateY(-5px); }
-    .cat-card img { height: 120px; object-fit: contain; margin-bottom: 10px; }
-    .cat-card h3 { margin-bottom: 5px; }
-    /* Product Cards */
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
-    .product { background: #1a1a1a; padding: 15px; border: 1px solid #333; }
-    .product img { height: 150px; object-fit: contain; margin-bottom: 10px; }
-    .product h4 { margin: 8px 0; font-size: 1.1rem; }
-    .product p { margin: 5px 0; }
-    .product .price { font-weight: bold; }
-    .product .btn { background: #ff8c00; color: #000; padding: 8px 20px; font-size: 0.9rem; border-radius: 4px; display: inline-block; margin-top: 8px; }
-    /* Section Titles */
-    h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; margin: 40px 0 20px; text-align: center; }
-    /* Contact Form */
-    .contact { background: #1a1a1a; padding: 20px; }
-    .contact form { max-width: 600px; margin: 0 auto; }
-    .contact label { display: block; margin: 10px 0 5px; }
-    .contact input, .contact textarea { width: 100%; padding: 8px; border: 1px solid #444; background: #0d0d0d; color: #fff; }
-    .contact button { background: #ff8c00; color: #000; padding: 10px 25px; border-radius: 4px; margin-top: 10px; }
-    /* Footer */
-    footer { background: #1a1a1a; color: #aaa; text-align: center; padding: 15px 0; margin-top: 40px; font-size: 0.9rem; }
-    footer a { color: #ff8c00; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Diamond Street Custom Concepts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#0d0d0d;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(8px);
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+}
+
+.logo{
+font-family:'Oswald',sans-serif;
+font-size:1.8rem;
+font-weight:700;
+color:#c0c0c0;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#3cb371;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 10%;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000');
+background-size:cover;
+background-position:center;
+}
+
+.hero-content h1{
+font-family:'Oswald',sans-serif;
+font-size:5rem;
+line-height:1;
+margin-bottom:20px;
+text-transform:uppercase;
+}
+
+.hero-content h2{
+font-size:1.5rem;
+color:#d0d0d0;
+margin-bottom:25px;
+}
+
+.hero-content p{
+max-width:800px;
+margin:auto;
+font-size:1.1rem;
+line-height:1.7;
+color:#c8c8c8;
+margin-bottom:40px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#3cb371;
+color:white;
+text-decoration:none;
+font-weight:bold;
+border-radius:4px;
+margin:10px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+background:#46c77c;
+}
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+font-family:'Oswald',sans-serif;
+font-size:3rem;
+text-align:center;
+margin-bottom:50px;
+text-transform:uppercase;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:#181818;
+border:1px solid #252525;
+padding:35px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#3cb371;
+}
+
+.card h3{
+font-family:'Oswald',sans-serif;
+margin-bottom:15px;
+font-size:1.5rem;
+}
+
+.card p{
+color:#b8b8b8;
+line-height:1.7;
+}
+
+.why{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.why-box{
+background:#181818;
+padding:30px;
+text-align:center;
+}
+
+.why-box h3{
+margin-top:15px;
+margin-bottom:10px;
+}
+
+.founder{
+background:#111;
+text-align:center;
+}
+
+.founder p{
+max-width:900px;
+margin:auto;
+line-height:1.8;
+font-size:1.1rem;
+color:#c7c7c7;
+}
+
+.cta{
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?q=80&w=2000');
+background-size:cover;
+background-position:center;
+}
+
+.cta h2{
+font-family:'Oswald',sans-serif;
+font-size:3rem;
+margin-bottom:20px;
+}
+
+footer{
+padding:50px;
+text-align:center;
+background:black;
+border-top:1px solid #222;
+}
+
+footer p{
+color:#999;
+margin-top:10px;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:3rem;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<header class="container">
-  <span class="logo">Diamond Street CC</span>
-  <span class="menu-toggle" onclick="toggleMenu()">☰</span>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#categories">Shop</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<header>
+<nav>
+
+<div class="logo">
+DIAMOND STREET CC
+</div>
+
+<div class="nav-links">
+<a href="#products">Products</a>
+<a href="#community">Community</a>
+<a href="#wagons">Wagons</a>
+<a href="#about">About</a>
+</div>
+
+</nav>
 </header>
 
-<section id="home" class="hero">
-  <div class="hero-content container">
-    <h1>Premium Billet Accessories</h1>
-    <p>For Chevrolet Impala SS, Caprice, Roadmaster & Fleetwood (91–96)</p>
-    <a href="#categories" class="btn">Shop Parts</a>
-    <a href="#contact" class="btn">Custom Quote</a>
-  </div>
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Built For The Last Real American Cruisers</h1>
+
+<h2>
+1958-1996 Impala • Caprice • Roadmaster • Wagon Performance
+</h2>
+
+<p>
+Premium billet aluminum accessories, custom engine bay components,
+LS swap solutions, interior upgrades, and hard-to-find parts
+for Chevrolet B-Body enthusiasts.
+</p>
+
+<a href="#products" class="btn">Shop Parts</a>
+<a href="#about" class="btn">Our Story</a>
+
+</div>
+
 </section>
 
-<section id="categories" class="container">
-  <h2>Featured Categories</h2>
-  <div class="categories">
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/150" alt="Engine Bay Parts">
-      <h3>Engine Bay</h3>
-      <p>Caps, Brackets, Dress Kits</p>
-    </div>
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/150" alt="Interior Trim Parts">
-      <h3>Interior Trim</h3>
-      <p>Doors, Dash, Panels</p>
-    </div>
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/150" alt="Exterior Accessories">
-      <h3>Exterior</h3>
-      <p>Emblems, Grilles, Ornaments</p>
-    </div>
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/150" alt="Wagon Exclusives">
-      <h3>Wagon Exclusives</h3>
-      <p>Cargo & Tailgate Trim</p>
-    </div>
-    <div class="cat-card">
-      <img src="https://via.placeholder.com/150" alt="Custom CNC Projects">
-      <h3>Custom CNC</h3>
-      <p>One-off & Limited Runs</p>
-    </div>
-  </div>
+<section class="section" id="products">
+
+<h2 class="section-title">
+Featured Collections
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Impala SS Collection</h3>
+<p>
+Billet accessories, engine bay upgrades,
+performance hardware, and custom touches
+built specifically for Impala enthusiasts.
+</p>
+</div>
+
+<div class="card">
+<h3>Wagon Nation</h3>
+<p>
+Caprice Wagons, Roadmaster Wagons,
+and Custom Cruisers deserve support too.
+Dedicated products built for long roof lovers.
+</p>
+</div>
+
+<div class="card">
+<h3>LS Swap Series</h3>
+<p>
+Mounts, brackets, covers, and engine bay
+accessories designed to clean up and simplify
+your LS-powered build.
+</p>
+</div>
+
+<div class="card">
+<h3>Limited Billet Runs</h3>
+<p>
+Small-batch custom pieces and specialty
+products built for serious collectors
+and custom builders.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="products" class="container">
-  <h2>Popular Picks</h2>
-  <div class="products">
-    <div class="product">
-      <img src="https://via.placeholder.com/180" alt="Billet Hood Ornament">
-      <h4>Billet Hood Ornament</h4>
-      <p class="price">$150.00</p>
-      <a href="#" class="btn">Add to Cart</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/180" alt="Door Jamb Vent (Polished)">
-      <h4>Door Jamb Vent (Polished)</h4>
-      <p class="price">$145.00</p>
-      <a href="#" class="btn">Add to Cart</a>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/180" alt="Billet Pedals Set">
-      <h4>Billet Pedal Covers</h4>
-      <p class="price">$225.00</p>
-      <a href="#" class="btn">Add to Cart</a>
-    </div>
-  </div>
+<section class="section">
+
+<h2 class="section-title">
+Why Diamond Street?
+</h2>
+
+<div class="why">
+
+<div class="why-box">
+<h3>Built By Enthusiasts</h3>
+<p>
+Designed by real B-Body owners,
+not a corporate catalog company.
+</p>
+</div>
+
+<div class="why-box">
+<h3>CNC Billet Quality</h3>
+<p>
+Premium materials and precision machining
+for long-term durability.
+</p>
+</div>
+
+<div class="why-box">
+<h3>Tested On Real Builds</h3>
+<p>
+Every product is selected with
+real-world applications in mind.
+</p>
+</div>
+
+<div class="why-box">
+<h3>Community Focused</h3>
+<p>
+Built around the culture,
+history, and future of the B-Body platform.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="why-billet" class="container">
-  <h2>Why Billet Aluminum?</h2>
-  <p>Billet aluminum parts are machined from solid aerospace-grade 6061-T6 metal, ensuring superior fit, strength, and finish versus cheaper cast alternatives. Our parts resist corrosion and retain value for life. They can also be custom-engraved and finished (polished, anodized, or powder-coated) to match your build.</p>
-  <ul>
-    <li>✅ **Precision Fit:** CNC machining guarantees exact dimensions.</li>
-    <li>✅ **Premium Finish:** Polished or anodized surfaces that stand out.</li>
-    <li>✅ **Durable:** Stronger than cast metal and built to last.</li>
-  </ul>
+<section class="section" id="community">
+
+<h2 class="section-title">
+Street Legends
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>1996 Impala SS</h3>
+<p>
+Show-quality builds and street machines
+using Diamond Street components.
+</p>
+</div>
+
+<div class="card">
+<h3>Caprice Wagon Builds</h3>
+<p>
+The long roofs that continue proving
+why wagons will never die.
+</p>
+</div>
+
+<div class="card">
+<h3>Roadmaster Wagon Collection</h3>
+<p>
+Luxury meets performance in one of GM's
+most underrated platforms.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="instagram" class="container">
-  <h2>Follow Our Builds</h2>
-  <!-- Mock Instagram grid of images -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 10px;">
-    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 1"></a>
-    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 2"></a>
-    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 3"></a>
-    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 4"></a>
-  </div>
-  <p style="text-align:center; margin: 15px 0;">Follow us <a href="https://instagram.com/diamondstreetcc">@diamondstreetcc</a> on Instagram for build photos & new releases.</p>
+<section class="section" id="wagons">
+
+<h2 class="section-title">
+Wagon Life
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Caprice Wagons</h3>
+<p>
+Custom billet upgrades created specifically
+for Chevrolet wagon owners.
+</p>
+</div>
+
+<div class="card">
+<h3>Roadmaster Wagons</h3>
+<p>
+Unique products and accessories
+for Buick wagon enthusiasts.
+</p>
+</div>
+
+<div class="card">
+<h3>Custom Cruisers</h3>
+<p>
+Supporting every variation of the legendary
+GM long roof platform.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="about" class="container">
-  <h2>About Diamond Street</h2>
-  <p>Founded by Chevrolet B-body enthusiasts, Diamond Street Custom Creations specializes in billet aluminum upgrades that celebrate the classic Impala/Caprice lineage. Based in Norwalk, CA, we design and source parts that keep these cars unique and enduring. Whether you’re building a show car or daily cruiser, our goal is quality and customer satisfaction.</p>
+<section class="section founder" id="about">
+
+<h2 class="section-title">
+About Diamond Street
+</h2>
+
+<p>
+Diamond Street Custom Concepts was founded by enthusiasts who
+believe the Chevrolet B-Body platform deserves better support.
+From Impala SS sedans to Caprice and Roadmaster wagons,
+our mission is simple: create premium billet products,
+offer hard-to-find components, and keep these iconic cars
+on the road for future generations.
+</p>
+
 </section>
 
-<section id="contact" class="contact container">
-  <h2>Contact Us</h2>
-  <p>Have a question or need a custom part? Drop us a line!</p>
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="_replyto" required>
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<section class="section cta">
+
+<h2>
+Join The Diamond Street Family
+</h2>
+
+<p style="margin-bottom:30px;">
+New products, limited billet runs, and community builds coming soon.
+</p>
+
+<a href="#" class="btn">
+Coming Soon
+</a>
+
 </section>
 
 <footer>
-  <p>Diamond Street Custom Creations – Premium Billet Components © 2026</p>
-  <p><a href="mailto:info@diamondstreetcc.com">info@diamondstreetcc.com</a> • <a href="https://instagram.com/diamondstreetcc">Instagram</a></p>
+
+<h3>DIAMOND STREET CUSTOM CONCEPTS</h3>
+
+<p>
+"Some people see an old Caprice. We see American history."
+</p>
+
+<p>
+© 2026 DiamondStreetCC.com
+</p>
+
 </footer>
 
-<script>
-// Mobile navigation toggle
-function toggleMenu() {
-  var nav = document.querySelector('header nav');
-  nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
-}
-</script>
 </body>
 </html>
