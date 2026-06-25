@@ -1,1238 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DIAMOND STREET CAR CLUB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diamond Street Custom Creations – Premium Billet Accessories for Chevrolet Impalas (91–96)</title>
+  <meta name="description" content="Diamond Street Custom Creations offers CNC-machined billet aluminum accessories for Chevrolet B-body cars (1991–96 Impala SS, Caprice, Roadmaster). Shop engine bay caps, interior trim, exterior badges, and custom CNC parts.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --yellow: #FFD600;
-      --yellow-hot: #FFB300;
-      --black: #0a0a0a;
-      --dark: #111111;
-      --mid: #1a1a1a;
-      --gray: #2a2a2a;
-      --white: #f0f0e8;
-      --diamond: repeating-linear-gradient(
-        45deg,
-        rgba(255,214,0,0.08) 0px,
-        rgba(255,214,0,0.08) 1px,
-        transparent 1px,
-        transparent 28px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        rgba(255,214,0,0.08) 0px,
-        rgba(255,214,0,0.08) 1px,
-        transparent 1px,
-        transparent 28px
-      );
-    }
-
+    /* Reset & Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Barlow Condensed', sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* ── DIAMOND ROAD STRIPE CURSOR ── */
-    body { cursor: crosshair; }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: var(--yellow); }
-
-    /* ══════════════════════════════
-       HERO
-    ══════════════════════════════ */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-      background: var(--black);
-    }
-
-    /* animated diagonal diamond grid */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: -100px;
-      background: var(--diamond);
-      animation: drift 18s linear infinite;
-    }
-
-    @keyframes drift {
-      from { transform: translate(0,0); }
-      to   { transform: translate(56px, 56px); }
-    }
-
-    /* road stripes at bottom */
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 60px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--black) 0px, var(--black) 60px,
-        var(--yellow) 60px, var(--yellow) 120px
-      );
-      clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      padding: 6px 18px;
-      margin-bottom: 24px;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      animation: fadeDown 0.6s ease both;
-    }
-
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 14vw, 13rem);
-      line-height: 0.88;
-      letter-spacing: -0.02em;
-      animation: fadeDown 0.8s ease 0.1s both;
-    }
-
-    .hero-title span {
-      display: block;
-      color: var(--yellow);
-      text-shadow:
-        0 0 40px rgba(255,214,0,0.5),
-        0 0 80px rgba(255,214,0,0.2);
-    }
-
-    .hero-sub {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      color: rgba(240,240,232,0.55);
-      text-transform: uppercase;
-      animation: fadeDown 0.8s ease 0.25s both;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 40px;
-      padding: 16px 40px;
-      background: var(--yellow);
-      color: var(--black);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.12em;
-      text-decoration: none;
-      clip-path: polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%);
-      transition: background 0.2s, transform 0.2s;
-      animation: fadeDown 0.8s ease 0.4s both;
-    }
-
-    .hero-cta:hover {
-      background: var(--yellow-hot);
-      transform: scale(1.04);
-    }
-
-    .hero-cta::after {
-      content: '▶';
-      font-size: 0.8em;
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── DIAMOND DIVIDER ── */
-    .divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 20px 0 0;
-    }
-
-    .divider-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--yellow), transparent);
-    }
-
-    .divider-diamond {
-      width: 18px; height: 18px;
-      background: var(--yellow);
-      transform: rotate(45deg);
-      flex-shrink: 0;
-      box-shadow: 0 0 20px var(--yellow);
-    }
-
-    /* ══════════════════════════════
-       NAV
-    ══════════════════════════════ */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 40px;
-      background: rgba(10,10,10,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,214,0,0.15);
-    }
-
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.08em;
-      color: var(--yellow);
-    }
-
-    .nav-logo span { color: var(--white); }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(240,240,232,0.65);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--yellow);
-      transition: width 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--yellow); }
-    .nav-links a:hover::after { width: 100%; }
-
-    /* ══════════════════════════════
-       SECTION WRAPPER
-    ══════════════════════════════ */
-    section {
-      padding: 100px 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.35em;
-      color: var(--yellow);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
-    }
-
-    /* ══════════════════════════════
-       ABOUT STRIP
-    ══════════════════════════════ */
-    .about-strip {
-      background: var(--yellow);
-      color: var(--black);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .about-strip-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 80px 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-strip h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 7vw, 7rem);
-      line-height: 0.88;
-      color: var(--black);
-    }
-
-    .about-strip h2 em {
-      font-style: normal;
-      color: var(--white);
-      -webkit-text-stroke: 2px var(--black);
-    }
-
-    .about-strip p {
-      font-size: 1.15rem;
-      font-weight: 600;
-      line-height: 1.7;
-      color: rgba(0,0,0,0.75);
-      max-width: 520px;
-    }
-
-    .about-strip p strong { color: var(--black); }
-
-    /* diamond pattern overlay */
-    .about-strip::after {
-      content: '';
-      position: absolute;
-      right: -80px; top: -80px;
-      width: 400px; height: 400px;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 1px,
-        transparent 1px, transparent 22px
-      ),
-      repeating-linear-gradient(
-        -45deg,
-        rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 1px,
-        transparent 1px, transparent 22px
-      );
-      pointer-events: none;
-    }
-
-    /* ══════════════════════════════
-       CARS GRID
-    ══════════════════════════════ */
-    #fleet {
-      padding-top: 120px;
-    }
-
-    .cars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .car-card {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      cursor: pointer;
-      background: var(--mid);
-    }
-
-    .car-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(0.7) brightness(0.85);
-      transition: filter 0.4s, transform 0.6s;
-    }
-
-    .car-card:hover img {
-      filter: saturate(1.3) brightness(1.05);
-      transform: scale(1.07);
-    }
-
-    /* yellow overlay on hover */
-    .car-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,214,0,0.18), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.4s;
-      z-index: 1;
-    }
-
-    .car-card:hover::before { opacity: 1; }
-
-    .car-card-info {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 24px 20px 18px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.85));
-      z-index: 2;
-      transform: translateY(8px);
-      opacity: 0;
-      transition: all 0.35s;
-    }
-
-    .car-card:hover .car-card-info {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .car-card-info h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.06em;
-      color: var(--yellow);
-    }
-
-    .car-card-info p {
-      font-size: 0.82rem;
-      letter-spacing: 0.2em;
-      color: rgba(240,240,232,0.7);
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-
-    /* diamond corner tag */
-    .car-tag {
-      position: absolute;
-      top: 16px; right: 16px;
-      background: var(--yellow);
-      color: var(--black);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      clip-path: polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
-      z-index: 3;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-    }
-
-    /* featured card spans 2 cols */
-    .car-card.featured {
-      grid-column: span 2;
-    }
-
-    /* ══════════════════════════════
-       STATS BANNER
-    ══════════════════════════════ */
-    .stats-banner {
-      background: var(--mid);
-      border-top: 3px solid var(--yellow);
-      border-bottom: 3px solid var(--yellow);
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .stats-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat-item {
-      padding: 50px 30px;
-      text-align: center;
-      position: relative;
-      border-right: 1px solid rgba(255,214,0,0.12);
-    }
-
-    .stat-item:last-child { border-right: none; }
-
-    .stat-item::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 120px; height: 120px;
-      background: radial-gradient(circle, rgba(255,214,0,0.07), transparent 70%);
-      transform: translate(-50%,-50%);
-      pointer-events: none;
-    }
-
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 4.5rem;
-      color: var(--yellow);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      text-shadow: 0 0 30px rgba(255,214,0,0.35);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      color: rgba(240,240,232,0.5);
-      text-transform: uppercase;
-      margin-top: 6px;
-      font-weight: 700;
-    }
-
-    /* ══════════════════════════════
-       DIAMOND STREET SECTION
-    ══════════════════════════════ */
-    .street-section {
-      background: var(--black);
-      position: relative;
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .street-section-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 120px 40px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* animated road */
-    .road {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 160px;
-      background: #1a1a1a;
-      overflow: hidden;
-    }
-
-    .road::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 0;
-      width: 200%;
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--yellow) 0px, var(--yellow) 60px,
-        transparent 60px, transparent 120px
-      );
-      animation: roadroll 1.2s linear infinite;
-    }
-
-    .road::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent, rgba(10,10,10,0.7));
-    }
-
-    @keyframes roadroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-120px); }
-    }
-
-    /* big background diamond */
-    .street-section::before {
-      content: '◆';
-      position: absolute;
-      right: -60px; top: 50%;
-      transform: translateY(-50%);
-      font-size: 600px;
-      color: rgba(255,214,0,0.03);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .street-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .street-text h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 6.5vw, 6.5rem);
-      line-height: 0.88;
-    }
-
-    .street-text h2 .accent {
-      color: var(--yellow);
-      display: block;
-      text-shadow: 0 0 40px rgba(255,214,0,0.4);
-    }
-
-    .street-text p {
-      margin-top: 24px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: rgba(240,240,232,0.6);
-      font-weight: 500;
-      max-width: 480px;
-    }
-
-    .rules-list {
-      margin-top: 36px;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .rules-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(240,240,232,0.8);
-    }
-
-    .rules-list li::before {
-      content: '◆';
-      color: var(--yellow);
-      font-size: 0.7em;
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-
-    /* diamond pattern panel */
-    .diamond-panel {
-      position: relative;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .diamond-panel-bg {
-      position: absolute;
-      inset: 0;
-      background: var(--diamond);
-      border: 1px solid rgba(255,214,0,0.15);
-    }
-
-    .diamond-center {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .diamond-center .big-diamond {
-      display: block;
-      font-size: 160px;
-      line-height: 1;
-      color: var(--yellow);
-      text-shadow:
-        0 0 60px rgba(255,214,0,0.6),
-        0 0 120px rgba(255,214,0,0.3);
-      animation: pulse-glow 3s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { text-shadow: 0 0 60px rgba(255,214,0,0.6), 0 0 120px rgba(255,214,0,0.3); }
-      50%       { text-shadow: 0 0 100px rgba(255,214,0,0.9), 0 0 200px rgba(255,214,0,0.5); }
-    }
-
-    .diamond-center h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem;
-      letter-spacing: 0.15em;
-      margin-top: -10px;
-      color: var(--white);
-    }
-
-    .diamond-center p {
-      font-size: 0.78rem;
-      letter-spacing: 0.3em;
-      color: rgba(240,240,232,0.45);
-      text-transform: uppercase;
-      margin-top: 6px;
-      font-weight: 600;
-    }
-
-    /* ══════════════════════════════
-       EVENTS
-    ══════════════════════════════ */
-    #events {
-      border-top: 1px solid rgba(255,214,0,0.1);
-    }
-
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .event-card {
-      background: var(--mid);
-      padding: 36px 30px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-      border-top: 3px solid transparent;
-    }
-
-    .event-card:hover {
-      background: #202020;
-      border-top-color: var(--yellow);
-    }
-
-    /* diamond BG per card */
-    .event-card::before {
-      content: '◆';
-      position: absolute;
-      right: -20px; bottom: -30px;
-      font-size: 120px;
-      color: rgba(255,214,0,0.04);
-      pointer-events: none;
-    }
-
-    .event-date {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: var(--yellow);
-      line-height: 1;
-    }
-
-    .event-month {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      color: rgba(240,240,232,0.4);
-      text-transform: uppercase;
-      margin-top: 2px;
-      font-weight: 700;
-    }
-
-    .event-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.05em;
-      margin-top: 20px;
-      line-height: 1;
-    }
-
-    .event-desc {
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: rgba(240,240,232,0.55);
-      margin-top: 10px;
-      font-weight: 500;
-    }
-
-    .event-loc {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 18px;
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      color: var(--yellow);
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    /* ══════════════════════════════
-       JOIN CTA
-    ══════════════════════════════ */
-    .join-section {
-      background: var(--yellow);
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .join-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 100px 40px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .join-inner h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 8vw, 8rem);
-      color: var(--black);
-      line-height: 0.88;
-    }
-
-    .join-inner h2 span {
-      display: block;
-      -webkit-text-stroke: 3px var(--black);
-      color: transparent;
-    }
-
-    .join-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-width: 320px;
-    }
-
-    .join-form input {
-      background: rgba(0,0,0,0.12);
-      border: 2px solid rgba(0,0,0,0.2);
-      color: var(--black);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      padding: 14px 18px;
-      outline: none;
-      transition: border-color 0.2s;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-    }
-
-    .join-form input::placeholder { color: rgba(0,0,0,0.4); }
-    .join-form input:focus { border-color: var(--black); }
-
-    .join-btn {
-      background: var(--black);
-      color: var(--yellow);
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.15em;
-      padding: 16px 36px;
-      border: none;
-      cursor: pointer;
-      clip-path: polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%);
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .join-btn:hover {
-      background: #1a1a1a;
-      transform: scale(1.03);
-    }
-
-    /* ══════════════════════════════
-       FOOTER
-    ══════════════════════════════ */
-    footer {
-      background: var(--dark);
-      border-top: 1px solid rgba(255,214,0,0.12);
-      padding: 60px 40px 40px;
-    }
-
-    .footer-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 60px;
-      padding-bottom: 50px;
-      border-bottom: 1px solid rgba(255,214,0,0.08);
-    }
-
-    .footer-brand h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      color: var(--yellow);
-      line-height: 1;
-    }
-
-    .footer-brand p {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: rgba(240,240,232,0.4);
-      line-height: 1.7;
-      font-weight: 500;
-    }
-
-    .footer-col h4 {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      color: var(--yellow);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-col ul li a {
-      color: rgba(240,240,232,0.45);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-
-    .footer-col ul li a:hover { color: var(--yellow); }
-
-    .footer-bottom {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-bottom p {
-      font-size: 0.78rem;
-      color: rgba(240,240,232,0.25);
-      letter-spacing: 0.12em;
-      font-weight: 600;
-    }
-
-    .footer-diamonds {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .footer-diamonds span {
-      font-size: 0.6rem;
-      color: rgba(255,214,0,0.3);
-    }
-
-    .footer-diamonds span.active {
-      color: var(--yellow);
-      font-size: 0.9rem;
-    }
-
-    /* ══════════════════════════════
-       TICKER TAPE
-    ══════════════════════════════ */
-    .ticker {
-      background: var(--yellow);
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 12px 0;
-    }
-
-    .ticker-inner {
-      display: inline-flex;
-      gap: 0;
-      animation: tick 22s linear infinite;
-    }
-
-    .ticker-inner span {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      color: var(--black);
-      padding: 0 20px;
-    }
-
-    .ticker-inner .dot {
-      color: rgba(0,0,0,0.25);
-    }
-
-    @keyframes tick {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ══════════════════════════════
-       RESPONSIVE (basic)
-    ══════════════════════════════ */
-    @media (max-width: 900px) {
-      .cars-grid { grid-template-columns: 1fr 1fr; }
-      .car-card.featured { grid-column: span 2; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .events-grid { grid-template-columns: 1fr; }
-      .about-strip-inner { grid-template-columns: 1fr; gap: 30px; }
-      .street-grid { grid-template-columns: 1fr; }
-      .join-inner { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 30px; }
-      nav { padding: 14px 20px; }
-      .nav-links { gap: 16px; }
-    }
+    body { font-family: 'Roboto', sans-serif; background-color: #0d0d0d; color: #fff; line-height: 1.6; }
+    a { color: #ff8c00; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    /* Container */
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    /* Header & Nav */
+    header { background: #1a1a1a; padding: 10px 0; position: sticky; top: 0; z-index: 100; }
+    .logo { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; color: #ff8c00; }
+    nav { float: right; }
+    nav ul { list-style: none; }
+    nav li { display: inline-block; margin-left: 20px; }
+    nav a { font-weight: 500; text-transform: uppercase; font-size: 0.95rem; }
+    /* Mobile Menu */
+    .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+    @media(max-width: 768px) {
+      nav { display: none; position: absolute; top: 60px; right: 20px; background: #1a1a1a; padding: 10px; }
+      nav ul { display: block; }
+      nav li { display: block; margin: 10px 0; }
+      .menu-toggle { display: block; color: #fff; float: right; margin: 15px; }
+    }
+    /* Hero Section */
+    .hero { background: url('https://example.com/hero-bg.jpg') no-repeat center/cover; height: 80vh; position: relative; display: flex; align-items: center; color: #fff; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: rgba(13,13,13,0.6); }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; text-align: center; margin: 0 auto; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 2px; }
+    .hero p { font-size: 1.1rem; margin: 15px 0; }
+    .hero .btn { display: inline-block; background: #ff8c00; color: #000; padding: 12px 30px; font-size: 1rem; margin: 10px; font-weight: 700; border: none; border-radius: 4px; transition: transform 0.2s, background 0.3s; }
+    .hero .btn:hover { transform: scale(1.05); background: #ffa733; }
+    /* Featured Categories */
+    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 15px; margin: 40px 0; }
+    .cat-card { background: #1a1a1a; padding: 15px; text-align: center; border: 1px solid #333; transition: transform 0.2s; }
+    .cat-card:hover { transform: translateY(-5px); }
+    .cat-card img { height: 120px; object-fit: contain; margin-bottom: 10px; }
+    .cat-card h3 { margin-bottom: 5px; }
+    /* Product Cards */
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; }
+    .product { background: #1a1a1a; padding: 15px; border: 1px solid #333; }
+    .product img { height: 150px; object-fit: contain; margin-bottom: 10px; }
+    .product h4 { margin: 8px 0; font-size: 1.1rem; }
+    .product p { margin: 5px 0; }
+    .product .price { font-weight: bold; }
+    .product .btn { background: #ff8c00; color: #000; padding: 8px 20px; font-size: 0.9rem; border-radius: 4px; display: inline-block; margin-top: 8px; }
+    /* Section Titles */
+    h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; margin: 40px 0 20px; text-align: center; }
+    /* Contact Form */
+    .contact { background: #1a1a1a; padding: 20px; }
+    .contact form { max-width: 600px; margin: 0 auto; }
+    .contact label { display: block; margin: 10px 0 5px; }
+    .contact input, .contact textarea { width: 100%; padding: 8px; border: 1px solid #444; background: #0d0d0d; color: #fff; }
+    .contact button { background: #ff8c00; color: #000; padding: 10px 25px; border-radius: 4px; margin-top: 10px; }
+    /* Footer */
+    footer { background: #1a1a1a; color: #aaa; text-align: center; padding: 15px 0; margin-top: 40px; font-size: 0.9rem; }
+    footer a { color: #ff8c00; }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+<header class="container">
+  <span class="logo">Diamond Street CC</span>
+  <span class="menu-toggle" onclick="toggleMenu()">☰</span>
   <nav>
-    <div class="nav-logo">◆ DIAMOND<span>ST</span></div>
-    <ul class="nav-links">
-      <li><a href="#fleet">Fleet</a></li>
-      <li><a href="#street">The Street</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#join">Join</a></li>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#categories">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+</header>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">◆ Est. 2019 · Tampa, FL ◆</div>
-      <h1 class="hero-title">
-        DIAMOND
-        <span>STREET</span>
-      </h1>
-      <p class="hero-sub">Car Club · Speed Culture · Brotherhood</p>
-      <a href="#fleet" class="hero-cta">Explore the Fleet</a>
+<section id="home" class="hero">
+  <div class="hero-content container">
+    <h1>Premium Billet Accessories</h1>
+    <p>For Chevrolet Impala SS, Caprice, Roadmaster & Fleetwood (91–96)</p>
+    <a href="#categories" class="btn">Shop Parts</a>
+    <a href="#contact" class="btn">Custom Quote</a>
+  </div>
+</section>
+
+<section id="categories" class="container">
+  <h2>Featured Categories</h2>
+  <div class="categories">
+    <div class="cat-card">
+      <img src="https://via.placeholder.com/150" alt="Engine Bay Parts">
+      <h3>Engine Bay</h3>
+      <p>Caps, Brackets, Dress Kits</p>
+    </div>
+    <div class="cat-card">
+      <img src="https://via.placeholder.com/150" alt="Interior Trim Parts">
+      <h3>Interior Trim</h3>
+      <p>Doors, Dash, Panels</p>
+    </div>
+    <div class="cat-card">
+      <img src="https://via.placeholder.com/150" alt="Exterior Accessories">
+      <h3>Exterior</h3>
+      <p>Emblems, Grilles, Ornaments</p>
+    </div>
+    <div class="cat-card">
+      <img src="https://via.placeholder.com/150" alt="Wagon Exclusives">
+      <h3>Wagon Exclusives</h3>
+      <p>Cargo & Tailgate Trim</p>
+    </div>
+    <div class="cat-card">
+      <img src="https://via.placeholder.com/150" alt="Custom CNC Projects">
+      <h3>Custom CNC</h3>
+      <p>One-off & Limited Runs</p>
     </div>
   </div>
+</section>
 
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-inner">
-      <span>DIAMOND STREET CAR CLUB</span><span class="dot">◆</span>
-      <span>SPEED IS A LIFESTYLE</span><span class="dot">◆</span>
-      <span>EVERY MEET. EVERY MILE.</span><span class="dot">◆</span>
-      <span>YELLOW &amp; BLACK. NO TURNING BACK.</span><span class="dot">◆</span>
-      <span>BUILT NOT BOUGHT</span><span class="dot">◆</span>
-      <span>DIAMOND STREET CAR CLUB</span><span class="dot">◆</span>
-      <span>SPEED IS A LIFESTYLE</span><span class="dot">◆</span>
-      <span>EVERY MEET. EVERY MILE.</span><span class="dot">◆</span>
-      <span>YELLOW &amp; BLACK. NO TURNING BACK.</span><span class="dot">◆</span>
-      <span>BUILT NOT BOUGHT</span><span class="dot">◆</span>
+<section id="products" class="container">
+  <h2>Popular Picks</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/180" alt="Billet Hood Ornament">
+      <h4>Billet Hood Ornament</h4>
+      <p class="price">$150.00</p>
+      <a href="#" class="btn">Add to Cart</a>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/180" alt="Door Jamb Vent (Polished)">
+      <h4>Door Jamb Vent (Polished)</h4>
+      <p class="price">$145.00</p>
+      <a href="#" class="btn">Add to Cart</a>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/180" alt="Billet Pedals Set">
+      <h4>Billet Pedal Covers</h4>
+      <p class="price">$225.00</p>
+      <a href="#" class="btn">Add to Cart</a>
     </div>
   </div>
+</section>
 
-  <!-- ABOUT -->
-  <div class="about-strip">
-    <div class="about-strip-inner">
-      <h2>WE DON'T<br/>JUST <em>DRIVE</em>.<br/>WE LIVE IT.</h2>
-      <p>
-        Diamond Street Car Club was born on the asphalt of Tampa, built by people who eat, breathe, and dream machines.
-        <strong>No politics. No posers.</strong> Just passionate builders, drivers, and gearheads who show up every single meet.
-        <br/><br/>
-        Whether you're running a bone-stock daily or a built-motor beast — if you love cars, you belong here.
-      </p>
-    </div>
+<section id="why-billet" class="container">
+  <h2>Why Billet Aluminum?</h2>
+  <p>Billet aluminum parts are machined from solid aerospace-grade 6061-T6 metal, ensuring superior fit, strength, and finish versus cheaper cast alternatives. Our parts resist corrosion and retain value for life. They can also be custom-engraved and finished (polished, anodized, or powder-coated) to match your build.</p>
+  <ul>
+    <li>✅ **Precision Fit:** CNC machining guarantees exact dimensions.</li>
+    <li>✅ **Premium Finish:** Polished or anodized surfaces that stand out.</li>
+    <li>✅ **Durable:** Stronger than cast metal and built to last.</li>
+  </ul>
+</section>
+
+<section id="instagram" class="container">
+  <h2>Follow Our Builds</h2>
+  <!-- Mock Instagram grid of images -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 10px;">
+    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 1"></a>
+    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 2"></a>
+    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 3"></a>
+    <a href="https://instagram.com/diamondstreetcc"><img src="https://via.placeholder.com/120" alt="Instagram image 4"></a>
   </div>
+  <p style="text-align:center; margin: 15px 0;">Follow us <a href="https://instagram.com/diamondstreetcc">@diamondstreetcc</a> on Instagram for build photos & new releases.</p>
+</section>
 
-  <!-- STATS -->
-  <div class="stats-banner">
-    <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-num">200+</div>
-        <div class="stat-label">Active Members</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">85</div>
-        <div class="stat-label">Meets Per Year</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Awards Won</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">6</div>
-        <div class="stat-label">Years Running</div>
-      </div>
-    </div>
-  </div>
+<section id="about" class="container">
+  <h2>About Diamond Street</h2>
+  <p>Founded by Chevrolet B-body enthusiasts, Diamond Street Custom Creations specializes in billet aluminum upgrades that celebrate the classic Impala/Caprice lineage. Based in Norwalk, CA, we design and source parts that keep these cars unique and enduring. Whether you’re building a show car or daily cruiser, our goal is quality and customer satisfaction.</p>
+</section>
 
-  <!-- FLEET SECTION -->
-  <section id="fleet">
-    <div class="section-label">◆ Our Members' Machines</div>
-    <h2 class="section-title">THE FLEET</h2>
-  </section>
+<section id="contact" class="contact container">
+  <h2>Contact Us</h2>
+  <p>Have a question or need a custom part? Drop us a line!</p>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="_replyto" required>
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
-  <div class="cars-grid">
+<footer>
+  <p>Diamond Street Custom Creations – Premium Billet Components © 2026</p>
+  <p><a href="mailto:info@diamondstreetcc.com">info@diamondstreetcc.com</a> • <a href="https://instagram.com/diamondstreetcc">Instagram</a></p>
+</footer>
 
-    <div class="car-card featured">
-      <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&q=80" alt="Lamborghini Huracán" loading="lazy"/>
-      <span class="car-tag">FEATURE BUILD</span>
-      <div class="car-card-info">
-        <h3>Lamborghini Huracán LP 610-4</h3>
-        <p>610HP · V10 · Forged Wheels · Full Exhaust</p>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80" alt="Porsche GT3" loading="lazy"/>
-      <span class="car-tag">CLUB MEMBER</span>
-      <div class="car-card-info">
-        <h3>Porsche 911 GT3</h3>
-        <p>503HP · PDK · Track Prepared</p>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <img src="https://images.unsplash.com/photo-1622166753893-c6f8cbba5559?w=800&q=80" alt="Ferrari" loading="lazy"/>
-      <span class="car-tag">CLUB MEMBER</span>
-      <div class="car-card-info">
-        <h3>Ferrari 488 GTB</h3>
-        <p>661HP · Twin-Turbo V8 · Race-Red</p>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <img src="https://images.unsplash.com/photo-1570733577524-3a047079e80d?w=800&q=80" alt="McLaren" loading="lazy"/>
-      <span class="car-tag">DAILY DRIVER</span>
-      <div class="car-card-info">
-        <h3>McLaren 720S</h3>
-        <p>710HP · Carbon Fibre Build · OEM+</p>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <img src="https://images.unsplash.com/photo-1554744512-d6c603f27c54?w=800&q=80" alt="Nissan GTR" loading="lazy"/>
-      <span class="car-tag">BUILT MOTOR</span>
-      <div class="car-card-info">
-        <h3>Nissan GT-R R35</h3>
-        <p>800HP · Twin-Turbo · Stance Nation</p>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="Supercar" loading="lazy"/>
-      <span class="car-tag">SHOWCAR</span>
-      <div class="car-card-info">
-        <h3>Ford GT Heritage</h3>
-        <p>660HP · Carbon Body · Race Livery</p>
-      </div>
-    </div>
-
-    <div class="car-card">
-      <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="Yellow Sports Car" loading="lazy"/>
-      <span class="car-tag">CLUB MEMBER</span>
-      <div class="car-card-info">
-        <h3>Chevrolet Corvette Z06</h3>
-        <p>670HP · Flat-Plane V8 · Track PKG</p>
-      </div>
-    </div>
-
-    <div class="car-card featured">
-      <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80" alt="BMW M4 Street" loading="lazy"/>
-      <span class="car-tag">STREET BUILD</span>
-      <div class="car-card-info">
-        <h3>BMW M4 Competition</h3>
-        <p>503HP · S58 · VRSF Turbo Kit · Full Send</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- DIAMOND STREET SECTION -->
-  <div class="street-section" id="street">
-    <div class="street-section-inner">
-      <div class="street-grid">
-        <div class="street-text">
-          <div class="section-label">◆ What We Stand For</div>
-          <h2>THE CODE OF<br/><span class="accent">DIAMOND<br/>STREET</span></h2>
-          <p>We run by a simple code. No drama. No disrespect. Just real love for the machine and the culture that built us.</p>
-          <ul class="rules-list">
-            <li>Respect every build, every budget</li>
-            <li>Show up, show out, represent right</li>
-            <li>No racing on public roads</li>
-            <li>Yellow & Black — ride or die colors</li>
-            <li>Family comes first, cars come second</li>
-            <li>Always help a member in need</li>
-          </ul>
-        </div>
-        <div class="diamond-panel">
-          <div class="diamond-panel-bg"></div>
-          <div class="diamond-center">
-            <span class="big-diamond">◆</span>
-            <h3>DIAMOND<br/>STREET CC</h3>
-            <p>Tampa, FL · Since 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="road"></div>
-  </div>
-
-  <!-- EVENTS -->
-  <section id="events">
-    <div class="section-label">◆ Mark Your Calendar</div>
-    <h2 class="section-title">UPCOMING EVENTS</h2>
-    <div class="events-grid">
-
-      <div class="event-card">
-        <div class="event-date">24</div>
-        <div class="event-month">May 2026</div>
-        <div class="event-name">Diamond Street<br/>Summer Kickoff</div>
-        <p class="event-desc">Our biggest annual outdoor meet — open to all makes and models. Live DJ, food trucks, and trophies for the best builds.</p>
-        <div class="event-loc">◆ Amalie Arena Lot — Tampa</div>
-      </div>
-
-      <div class="event-card">
-        <div class="event-date">07</div>
-        <div class="event-month">Jun 2026</div>
-        <div class="event-name">Yellow &amp; Black<br/>Night Show</div>
-        <p class="event-desc">Exclusive themed meet — yellow or black builds only. Rolling into Downtown Tampa for an epic photoshoot and night glow.</p>
-        <div class="event-loc">◆ Curtis Hixon Waterfront</div>
-      </div>
-
-      <div class="event-card">
-        <div class="event-date">19</div>
-        <div class="event-month">Jul 2026</div>
-        <div class="event-name">Track Day<br/>Members Only</div>
-        <p class="event-desc">Private track day for DSCC members. Open lapping, parade laps, and a timed solo session. RSVP to the club captain.</p>
-        <div class="event-loc">◆ Sebring International Raceway</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- JOIN CTA -->
-  <div class="join-section" id="join">
-    <div class="join-inner">
-      <h2>RIDE WITH<br/><span>DIAMOND STREET</span></h2>
-      <div class="join-form">
-        <input type="text" placeholder="FULL NAME" />
-        <input type="email" placeholder="EMAIL ADDRESS" />
-        <input type="text" placeholder="YOUR CAR (YEAR / MAKE / MODEL)" />
-        <button class="join-btn">◆ REQUEST MEMBERSHIP</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <h3>DIAMOND<br/>STREET CC</h3>
-          <p>Built on respect, driven by passion.<br/>Tampa's premier car culture collective since 2019.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="#fleet">Fleet Gallery</a></li>
-            <li><a href="#street">Our Code</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#join">Join the Club</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Facebook Group</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 DIAMOND STREET CAR CLUB · TAMPA, FL · ALL RIGHTS RESERVED</p>
-        <div class="footer-diamonds">
-          <span>◆</span><span>◆</span><span class="active">◆</span><span>◆</span><span>◆</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+<script>
+// Mobile navigation toggle
+function toggleMenu() {
+  var nav = document.querySelector('header nav');
+  nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+}
+</script>
 </body>
 </html>
